@@ -1,2 +1,2 @@
 # hackerrank
-Answers from some exercises.
+Answers from some exercises using different programming languages.
