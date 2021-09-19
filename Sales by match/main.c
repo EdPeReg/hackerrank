@@ -1,50 +1,26 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-
-int count(int element, int n, int *ar) {
-    int counter = 0;
-
-    for(int i = 0; i < n; ++i) {
-        if(element == ar[i])
-            ++counter;
-    }
-
-    return counter;
-}
 
 int sockMerchant(int n, int* ar) {
-    int *repeatedElem = (int*) malloc(n * sizeof(int));
-    int numberPairs = 0;
+    int totalPairs = 0, sockCounter = 0;
 
     for(int i = 0; i < n; ++i) {
-        repeatedElem[i] = -1;
-    }
-
-    bool repeated = false;
-    for(int i = 0; i < n; ++i) {
-        // Start to analize the repeated elements.
-        for(int j = 0; j < n; ++j) {
-            // If it's repeated, stop and set the flag as repeated. Otherwise continue.
-            if(ar[i] != repeatedElem[j]) {
-                repeated = false;
-                continue;
-            } else {
-                repeated = true;
-                break;
+        // We always have at least one sock.
+        sockCounter = 1;
+        // Only analize socks that aren't repeated.
+        if(ar[i] != 0) {
+            // Count hom many socks you have and set it to 0 to mark that is already found.
+            for(int j = i + 1; j < n; ++j) {
+                if(ar[j] == ar[i]) {
+                    ++sockCounter;
+                    ar[j] = 0;
+                }
             }
         }
-
-        // If it's not repeated just do the calculation and insert the repeated element.
-        if(!repeated) {
-            repeatedElem[i] = ar[i];
-            int counter = count(ar[i], n, ar);
-            numberPairs += counter / 2;
-        }
+        totalPairs += sockCounter / 2;
     }
 
-    free(repeatedElem);
-    return numberPairs;
+    return totalPairs;
 }
 
 int main() {
@@ -60,3 +36,4 @@ int main() {
 
     free(ar);
 }
+
