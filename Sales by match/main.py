@@ -1,18 +1,8 @@
 #!/usr/bin/env python
 
 def sockMerchant(n: int, ar: list) -> int:
-    i = 0
-    numPairs = 0
-
-    ar.sort()
-    while i < n - 1:
-        if ar[i] == ar[i+1]:
-            numPairs += 1
-            i += 2
-        else:
-            i += 1
-
-    return numPairs
+    # Using a set will delete repeated elements.
+    return sum([ar.count(element) // 2 for element in set(ar)])
 
 def main():
     n = int(input())
