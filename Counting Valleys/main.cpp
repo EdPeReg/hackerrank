@@ -2,18 +2,23 @@
 
 int countingValleys(std::string& path) 
 {
-    int seaLevel = 0, valleyCount = 0;
-
-    for(char& step : path) 
-    {
-        if(step == 'U') ++seaLevel;
-        else         --seaLevel;
-
-        if(step == 'U' and seaLevel == 0)
-            ++valleyCount;
+    int seaLevel = 0, level = 0, countingVall = 0;
+    bool cross = false;
+    
+    for(char& step : path) {
+        if(step == 'D') { 
+            --level;
+        } else {
+            ++level;
+        }
+        
+        if(!cross and level < seaLevel) {
+            ++countingVall;
+            cross = true;
+        } else if(level == seaLevel) 
+            cross = false;
     }
-
-    return valleyCount;
+    return countingVall;
 }
 
 int main() {
