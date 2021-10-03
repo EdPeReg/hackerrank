@@ -7,13 +7,13 @@ class JumpingOnClouds
     public static int jumping_on_clouds(List<int> clouds, int n)
     {
         int jumps = 0;
-        for(int i = 0; i < n-1;)
+        for(int i = 0; i < n-1; ++i)
         {
             // 1 + 2 checks array boundaries.
-            if(i + 2 < n && clouds[i+2] == 1)
-                ++i;
-            else
-                i += 2;
+            // If you are in a cloud, always jump two clouds, you can jump
+            // twice because you have the ++i from the if and ++i from the for.
+            // If you are in a thunderhead, just jump 1.
+            if(i + 2 < n && clouds[i] == 0) ++i;
             ++jumps;
         }
 
