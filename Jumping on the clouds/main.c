@@ -4,9 +4,12 @@
 int jumpingOnClouds(int c_count, int *c)
 {
     int jumps = 0;
-    for(int i = 0; i < c_count - 1;)
+    for(int i = 0; i < c_count - 1; ++i)
     {
-        c[i+2] ? ++i : (i += 2);
+        // If you are in a cloud, always jump two clouds, you can jump
+        // twice because you have the ++i from the if and ++i from the for.
+        // If you are in a thunderhead, just jump 1.
+        if(c[i] == 0) ++i;
         ++jumps;
     }
 
