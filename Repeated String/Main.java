@@ -3,9 +3,8 @@ import java.util.Scanner;
 public class Main {
     public static long repeatedString(String s, long n) {
         long total = n / s.length() * s.chars().filter(ch -> ch == 'a').count();
-        long size = s.length();
-        long remainder = n % size;
-        String substr = s.substring(0, (int) remainder);
+        int remainder = (int) (n % s.length());
+        String substr = s.substring(0, remainder);
         return total + substr.chars().filter(ch -> ch == 'a').count();
     }
 
