@@ -15,12 +15,12 @@ function repeated_string() {
     local string=$1
     local n=$2
     # Just doing some simple operations.
-    local total=$(($n / ${#string}))
-    local rem=$(($n % ${#string}))
+    local total=$n/${#string}
+    local rem=$n%${#string}
     # Getting a substring from the string, this works like a slide.
     local substring=${string:0:$rem}
 
-    total=$(($total * $(get_occurence $string)))
+    total=$total*$(get_occurence $string)
     echo $(($total + $(get_occurence $substring)))
 }
 
