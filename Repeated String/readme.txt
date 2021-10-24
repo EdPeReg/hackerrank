@@ -1,1 +1,2 @@
-https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+- Problem: https://www.hackerrank.com/challenges/repeated-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+- Weird Regex: https://stackoverflow.com/questions/2903542/javascript-how-many-times-a-character-occurs-in-a-string/27277867

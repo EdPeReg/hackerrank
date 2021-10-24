@@ -3,9 +3,6 @@
 
 long repeated_string(std::string& s, long n)
 {
-    if(s.size() == 1 and s == "a") return n;
-    else if(s.size() == 1 or std::count(s.begin(), s.end(), 'a') == 0) return 0;
-
     long total = n / s.size();
     int left = n % s.size();
 
